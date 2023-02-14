@@ -46,14 +46,14 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="250" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="cmd" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="cmd1" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="cmd2" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="cmd3" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="cmd4" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="cmd5" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmd" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="250" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="250" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

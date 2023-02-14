@@ -88,7 +88,10 @@ public class Button extends JButton {
         if (width > 0 && height > 0) {
             imageShadow = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
             Graphics2D g2 = imageShadow.createGraphics();
-            g2.drawImage(createShadow(), 0, 0, null);
+            BufferedImage img = createShadow();
+            if (img != null) {
+                g2.drawImage(createShadow(), 0, 0, null);
+            }
             g2.dispose();
         }
     }
@@ -96,11 +99,15 @@ public class Button extends JButton {
     private BufferedImage createShadow() {
         int width = getWidth() - (shadowSize.left + shadowSize.right);
         int height = getHeight() - (shadowSize.top + shadowSize.bottom);
-        BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g2 = img.createGraphics();
-        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        g2.fill(new RoundRectangle2D.Double(0, 0, width, height, round, round));
-        g2.dispose();
-        return new ShadowRenderer(5, 0.3f, shadowColor).createShadow(img);
+        if (width > 0 && height > 0) {
+            BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+            Graphics2D g2 = img.createGraphics();
+            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            g2.fill(new RoundRectangle2D.Double(0, 0, width, height, round, round));
+            g2.dispose();
+            return new ShadowRenderer(5, 0.3f, shadowColor).createShadow(img);
+        } else {
+            return null;
+        }
     }
 }
